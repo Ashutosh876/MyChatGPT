@@ -1,4 +1,5 @@
 import requests
+import os
 
 # Ask the user for the endpoint and HTTP method
 endpoint = input("Enter the endpoint: ")
@@ -8,11 +9,11 @@ http_method = input("Enter the HTTP method (GET or POST): ").upper()
 base_url = "https://api.spotify.com/v1/"
 
 # Set the access token
-access_token = 'BQDL04XabBYowxQYQXDEj4B5qfrQoD_Q9MMeiy4VpCcx8QgpcYDHVWg7IOxB1vpq3eL8V54RGphc--T3B3wUfc4dp20acFHxsZpSpX76O5vl1jWgt7yuN2rzwfdmCC0VnsvfSJl9S2E58W5V2fcnc37AeonF27skQAxTbGM2IIWcgKlRNDzIyHTmVlY_samdQIGTQAhoX2cnDOnkOtIB2fNbn1dLkMIUswfDfHevdtLBAcvDaHYLOzjCpE7a-A_SMCwwxsc_wDmof46AkzMf7El_58L_494zvIqSMs8QnLf8FEiEsg8mdkBv3nOUZkiEhQcQ-6TqNajnI-tNFeY3c1o9S-dG6j53YQojOYVPNWivs0tDsCQ';
+SPOTIFY_ACCESS_TOKEN = os.getenv("SPOTIFY_ACCESS_TOKEN")
 
 # Set the headers
 headers = {
-    "Authorization": f"Bearer {access_token}"
+    "Authorization": f"Bearer {SPOTIFY_ACCESS_TOKEN}"
 }
 
 # Build the complete URL for the API request

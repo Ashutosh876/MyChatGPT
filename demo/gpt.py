@@ -2,12 +2,9 @@ import openai
 import sys
 import os
 import playAsong
+from config import setEnvVars
 
-if os.path.exists(".env"):
-    with open(".env") as env_file:
-        for line in env_file:
-            key, val = line.strip().split("=")
-            os.environ[key] = val
+setEnvVars()
 
 # Load OpenAI API key
 messages_input = [
